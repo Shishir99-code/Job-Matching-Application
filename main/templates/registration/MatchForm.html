@@ -1,0 +1,50 @@
+
+{% extends 'main/base.html' %}
+{% block title %}
+Match Form
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+  body {
+      background-image: url("https://lh4.googleusercontent.com/hADNWkUgZS5DRZn810rZwLLBvTx8tVnPiUCAV-bmbcq5E1FL_TTNaNWvGyiUAfkywM4=w2400");
+      input {max-width: 6em};
+      font-family: 'Cambria';
+      font-weight: bold;
+
+  }
+
+  .alert {
+      width:40%;    
+   }
+
+   .btn {
+    width: 200px;
+    font-size: 20px;
+  }
+
+  
+</style>
+
+
+<br>
+
+{%for msg in messages %}
+<div class="alert alert-danger" role="alert">
+    {{ msg }}
+</div>
+{%endfor%}
+<br>
+<form method="post" enctype="multipart/form-data" style="text-align: center; " margin-top:'100px'>
+{% csrf_token %}{{form|crispy}}
+<br>
+<button type="submit" class="btn btn-primary" width:'250pxp;'>Match</button>
+</form>
+<script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 2000)
+</script> 
+{% endblock %}

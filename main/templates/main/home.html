@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% block title %}Home Page{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    body {
+        background-image: url("https://drive.google.com/uc?export=view&id=1PFbbWR28WEYXUYPDr3cH1FCpxkYLBKUs");
+        input {max-width: 6em};
+        font-family: 'Cambria';
+        font-weight: bold;
+    }
+
+    .alert {
+        width:40%;    
+     }
+
+    
+</style>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--<p style='text-align:left;padding-left:150;float:left;color:#001540;font-size:50px'><b>Aether Analytics</b></p>-->
+<br>
+<!--<p style="text-align:center;"><img src="https://drive.google.com/uc?export=view&id=1Vh7Jdmh6Q3ghLuUII13uCXxgzSmkHJYf" width="160" height="140" class="rounded-circle"></p>-->
+<br>
+<br>
+<br>
+
+
+    <left>
+        <br>
+        {%for msg in messages %}
+        <div class="alert alert-danger" role="alert">
+            Invalid login information | Check your username and password!
+        </div>
+        {% endfor %}
+        <form method="post">
+            {% csrf_token %}{{form|crispy}}
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+{% endblock %}

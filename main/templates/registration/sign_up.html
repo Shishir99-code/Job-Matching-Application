@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Sign Up
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    body {
+        background-image: url("https://lh4.googleusercontent.com/hADNWkUgZS5DRZn810rZwLLBvTx8tVnPiUCAV-bmbcq5E1FL_TTNaNWvGyiUAfkywM4=w2400");
+        input {max-width: 6em};
+        font-family: 'Cambria';
+        font-weight: bold;
+    }
+
+    .alert {
+        width:40%;    
+     }
+
+    
+</style>
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}{{form1|crispy}}
+<button type="submit" class="btn btn-success">Register</button>
+</form>
+{% endblock %}
+
+
